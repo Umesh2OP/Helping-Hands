@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Hands | Restaurant Dashboard</title>
+    <link rel="stylesheet" href="restodash.css">
+</head>
+<body>
+    <header>
+        <h1>Helping Hands Restaurant Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Add Food Listing</a></li>
+                <li><a href="#">My Donations</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Welcome, [Restaurant Name]</h2>
+            <p>Your contributions make a difference in reducing food waste.</p>
+        </section>
+
+        <section class="add-food">
+            <h3>List New Food Donation</h3>
+            <form action="/submit_food" method="POST">
+                <label for="food-name">Food Name:</label>
+                <input type="text" id="food-name" name="food-name" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="quantity">Quantity (e.g., servings):</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <label for="location">Pickup Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <button type="submit" class="submit-btn">Add Donation</button>
+            </form>
+        </section>
+
+        <section class="previous-donations">
+            <h3>My Previous Donations</h3>
+            <ul>
+                <li>Food Item: Description | Quantity: 10 | Status: Collected</li>
+                <!-- Repeat for more donations -->
+            </ul>
+        </section>
+        <script src="dashboard.js"></script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Helping Hands | Powered by Care and Community</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Hands | NGO Dashboard</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background-color: #00796b;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+        }
+        
+        /* Navigation Bar */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Section */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #00796b;
+            margin-bottom: 1rem;
+        }
+        
+        /* Food Listings */
+        .food-listings {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .food-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .food-item:last-child {
+            border-bottom: none;
+        }
+        
+        .food-item h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .food-item p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+        
+        .claim-btn {
+            background-color: #00796b;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .claim-btn:hover {
+            background-color: #004d40;
+        }
+        
+        /* Claim Success Message */
+        #claimMessage {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+            border-radius: 4px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #00796b;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Helping Hands NGO Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Food Listings</a></li>
+                <li><a href="#">Claimed Items</a></li>
+                <li><a href="login-provider.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="food-listings">
+            <h2 class="section-title">Available Food Listings</h2>
+            <div class="food-item">
+                <h3>Restaurant A - Pasta</h3>
+                <p>Description: Delicious pasta with tomato sauce</p>
+                <p>Quantity: 10</p>
+                <p>Location: Downtown</p>
+                <button class="claim-btn" onclick="claimFood()">Claim Food</button>
+            </div>
+            <div class="food-item">
+                <h3>Bakery B - Bread Loaf</h3>
+                <p>Description: Freshly baked whole wheat bread</p>
+                <p>Quantity: 5</p>
+                <p>Location: Uptown</p>
+                <button class="claim-btn" onclick="claimFood()">Claim Food</button>
+            </div>
+            <!-- Add more food items as needed -->
+            <div id="claimMessage">Food claimed successfully!</div>
+        </section>
+        
+        <section class="claimed-items">
+            <h2 class="section-title">Claimed Food Items</h2>
+            <ul>
+                <li>Restaurant A - Pasta</li>
+                <li>Bakery B - Bread Loaf</li>
+                <!-- More claimed items can be added here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Helping Hands | Powered by Care and Community</p>
+    </footer>
+
+    <script>
+        window.addEventListener("load", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+
+    
+    setTimeout(() => {
+        loadingScreen.style.opacity = "0"; // Fade out effect
+        loadingScreen.style.transition = "opacity 0.5s ease";
+
+        setTimeout(() => {
+            loadingScreen.style.display = "none"; 
+        }, 500);
+    }, 2000); 
+});
+        function claimFood() {
+            const claimMessage = document.getElementById("claimMessage");
+
+            // Show success message
+            claimMessage.style.display = "block";
+
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                claimMessage.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
